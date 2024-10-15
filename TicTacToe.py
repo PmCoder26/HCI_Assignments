@@ -27,7 +27,7 @@ class TicTacToe:
     def handle_click(self, i, j):
         if self.board[i][j] == '':
             self.board[i][j] = self.curr_player
-            self.buttons[i][j].configure(text=self.board[i][j])
+            self.buttons[i][j].config(text=self.board[i][j])
             if self.win_check() or self.tie_check():
                 self.game_over()
             else:
@@ -70,7 +70,7 @@ class TicTacToe:
     def game_over(self):
         for i in range(0, 3):
             for j in range(0, 3):
-                self.buttons[i][j].configure(state="disabled")
+                self.buttons[i][j].config(state="disabled")
         if self.win_check():
             Label(
                 master=self.master,
