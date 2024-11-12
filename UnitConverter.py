@@ -45,7 +45,7 @@ def convert():
         elif typeTo == "Kilometer":
             result /= 1000
         elif typeTo == "Inch":
-            result /= (2.54 * 1000)
+            result = (result * 1000) / 2.54
     resultLabel.configure(text=result)
             
 

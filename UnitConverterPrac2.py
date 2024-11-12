@@ -70,11 +70,13 @@ class UC:
         elif fromType == 'Meter':
             result = value
             if toType == 'Inch':
-                result /= (2.54 * 100)
+                result = (result * 100) / 2.54
             elif toType == 'Centimeter':
                 result *= 100
             elif toType == 'Kilometer':
-                result /= 10
+                result /= 1000
+            return result
+
 
 
 
