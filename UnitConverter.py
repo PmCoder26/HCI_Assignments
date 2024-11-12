@@ -35,7 +35,7 @@ def convert():
         elif typeTo == "Kilometer":
             result /= 1000
         elif typeTo == "Inch":
-            result /= (2.54 * 100)
+            result = (result * 100) / 2.54
     elif typeFrom == "Kilometer":
         result = value
         if typeTo == typeFrom:
