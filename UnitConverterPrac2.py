@@ -26,11 +26,13 @@ class UC:
             values=self.converterList
         )
         self.fromCombo.grid(row=0, column=2, padx=5, pady=5)
+        self.fromCombo.set(self.converterList[0])
         self.toCombo = Combobox(
             master=self.frame,
             values=self.converterList
         )
         self.toCombo.grid(row=0, column=3, padx=5, pady=5)
+        self.toCombo.set(self.converterList[0])
         self.resultButton = Button(
             master=self.frame,
             text="Result",
@@ -48,16 +50,14 @@ class UC:
         toType = self.toCombo.get()
         value = float(self.inputEntry.get())
         if fromType == toType:
-            return value
+            self.result = value
         elif fromType == 'Inch':
             result = value * 2.54
-            if toType == 'Centimeter':
-                return result
-            elif toType == 'Meter':
+            if toType == 'Meter':
                 result /= 100
             elif toType == 'Kilometer':
                 result /= 1000
-            return result
+            self.result = result
         elif fromType == 'Centimeter':
             result = value
             if toType == 'Inch':
@@ -66,7 +66,7 @@ class UC:
                 result /= 100
             elif toType == 'Kilometer':
                 result /= 1000
-            return result
+            self.result = result
         elif fromType == 'Meter':
             result = value
             if toType == 'Inch':
@@ -75,7 +75,13 @@ class UC:
                 result *= 100
             elif toType == 'Kilometer':
                 result /= 1000
-            return result
+            self.result = result
+        elif fromType == 'Kilometer':
+            result = value
+            if toType == 'Inch':
+                result = (result * 1000) / 2.54
+            elif toType == 'Centimeter':
+                result *= 1000
 
 
 

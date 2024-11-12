@@ -10,17 +10,13 @@ def convert():
     typeTo = toBox.get()
     if typeFrom == "Inch":
         result += value * 2.54
-        if typeTo == typeFrom:
-            return value
-        elif typeTo == "Meter":
+        if typeTo == "Meter":
             result /= 100
         elif typeTo == "Kilometer":
             result /= 1000
     elif typeFrom == "Centimeter":
         result = value
-        if typeTo == typeFrom:
-            return value
-        elif typeTo == "Meter":
+        if typeTo == "Meter":
             result /= 100
         elif typeTo == "Kilometer":
             result /= 1000
@@ -28,9 +24,7 @@ def convert():
             result /= 2.54
     elif typeFrom == "Meter":
         result = value
-        if typeTo == typeFrom:
-            return value
-        elif typeTo == "Centimeter":
+        if typeTo == "Centimeter":
             result *= 100
         elif typeTo == "Kilometer":
             result /= 1000
@@ -38,12 +32,10 @@ def convert():
             result = (result * 100) / 2.54
     elif typeFrom == "Kilometer":
         result = value
-        if typeTo == typeFrom:
-            return value
-        elif typeTo == "Meter":
-            result /= 100
-        elif typeTo == "Kilometer":
-            result /= 1000
+        if typeTo == "Meter":
+            result *= 1000
+        elif typeTo == "Centimeter":
+            result *= 1000 * 100
         elif typeTo == "Inch":
             result = (result * 1000) / 2.54
     resultLabel.configure(text=result)
